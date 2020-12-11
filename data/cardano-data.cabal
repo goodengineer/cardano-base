@@ -1,0 +1,47 @@
+cabal-version:       >=1.10
+
+name:                cardano-data
+version:             0.1.0.0
+synopsis:            Useful datatypes for cardano libraries
+license:             Apache-2.0
+license-files:
+  LICENSE
+  NOTICE
+author:              IOHK
+maintainer:          operations@iohk.io
+copyright:           IOHK
+build-type:          Simple
+
+flag development
+    description: Disable `-Werror`
+    default: False
+    manual: True
+
+library
+  default-language:     Haskell2010
+  hs-source-dirs:       src
+  ghc-options:
+    -Wall
+    -Wcompat
+    -Wincomplete-record-updates
+    -Wincomplete-uni-patterns
+    -Wredundant-constraints
+  if (!flag(development))
+    ghc-options:
+      -Werror
+  exposed-modules:      Cardano.Data.StrictFingerTree
+                        Cardano.Data.StrictMaybe
+                        Cardano.Data.StrictSeq
+                        Cardano.Data.StrictUnit
+  build-depends:        aeson
+                      , base
+                      , cardano-binary
+                      , cborg
+                      , containers
+                      , data-default-class
+                      , deepseq
+                      , fingertree
+                      , mmorph
+                      , nothunks
+                      , serialise
+                      , quiet
