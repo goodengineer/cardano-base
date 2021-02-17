@@ -112,7 +112,7 @@ decodeNestedCborTag = do
     "decodeNestedCborTag"
     (fromIntegral t)
 
--- | Remove the the semantic tag 24 from the enclosed CBOR data item,
+-- | Remove the semantic tag 24 from the enclosed CBOR data item,
 -- decoding back the inner `ByteString` as a proper Haskell type.
 -- Consume its input in full.
 decodeNestedCbor :: FromCBOR a => D.Decoder s a
