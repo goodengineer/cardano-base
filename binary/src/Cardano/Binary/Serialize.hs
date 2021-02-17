@@ -84,7 +84,7 @@ encodeNestedCbor = encodeNestedCborBytes . serialize
 
 -- | Like `encodeNestedCbor`, but assumes nothing about the shape of
 --   input object, so that it must be passed as a binary `ByteString` blob. It's
---   the caller responsibility to ensure the input `ByteString` correspond
+--   the caller responsibility to ensure the input `ByteString` corresponds
 --   indeed to valid, previously-serialised CBOR data.
 encodeNestedCborBytes :: LByteString -> Encoding
 encodeNestedCborBytes x = encodeTag 24 <> toCBOR x
